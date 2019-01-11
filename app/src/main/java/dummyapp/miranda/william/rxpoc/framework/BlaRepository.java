@@ -14,6 +14,7 @@ public class BlaRepository implements IRepository<Bla> {
                 realm.copyToRealmOrUpdate(bla);
             }
         });
+        realm.close();
     }
 
     @Override
