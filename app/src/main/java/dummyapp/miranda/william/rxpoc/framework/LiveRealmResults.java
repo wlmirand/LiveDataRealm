@@ -12,7 +12,7 @@ import io.realm.OrderedRealmCollectionChangeListener;
 import io.realm.RealmModel;
 import io.realm.RealmResults;
 
-public class LiveRealmResults<T extends RealmModel> extends LiveData<List<T>> {
+public class LiveRealmResults<T extends RealmModel> extends LiveData<RealmResults<T>> {
     private final RealmResults<T> results;
 
     // The listener will notify the observers whenever a change occurs.

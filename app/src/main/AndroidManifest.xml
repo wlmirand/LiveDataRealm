@@ -11,8 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity
-            android:name=".app.main.SplitActivity">
+        <activity android:name=".app.main.SplitActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -21,7 +20,12 @@
 
         <receiver
             android:name=".app.AddReceiver"
-            android:exported="true" />
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="test"/>
+            </intent-filter>
+        </receiver>
 
     </application>
 

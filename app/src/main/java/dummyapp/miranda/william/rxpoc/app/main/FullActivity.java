@@ -30,12 +30,11 @@ public class FullActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         //Observe the Live Data provided by the ViewModel
-        viewModel.getAllBlaLiveData().observe(this, new Observer<List<Bla>>() {
-            @Override
-            public void onChanged(@Nullable List<Bla> newList) {
-                //When the Data changes, update the Adapter
-                ((BlaAdapter) recyclerView.getAdapter()).swap(newList);
-            }
+        /*viewModel.getResultListLiveData().observe(this, newList -> {
+            //When the Data changes, update the Adapter
+            ((BlaAdapter) recyclerView.getAdapter()).swap(newList);
         });
+
+        viewModel.getRealmUpdateMediator().observe(this, observer -> FullActivity.this.viewModel.setResultListLiveData());*/
     }
 }

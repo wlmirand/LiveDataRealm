@@ -12,10 +12,11 @@ import java.util.List;
 
 import dummyapp.miranda.william.rxpoc.R;
 import dummyapp.miranda.william.rxpoc.framework.Bla;
+import dummyapp.miranda.william.rxpoc.framework.BlaObject;
 
 public class BlaAdapter extends RecyclerView.Adapter<BlaAdapter.BlaViewHolder> {
 
-    private List<Bla> data;
+    private List<BlaObject> data;
 
     public BlaAdapter() {
         this.data = new ArrayList<>();
@@ -40,7 +41,7 @@ public class BlaAdapter extends RecyclerView.Adapter<BlaAdapter.BlaViewHolder> {
         return data.size();
     }
 
-    public void swap(List<Bla> newData) {
+    public void swap(List<BlaObject> newData) {
         data.clear();
         data.addAll(newData);
         notifyDataSetChanged();
@@ -55,7 +56,7 @@ public class BlaAdapter extends RecyclerView.Adapter<BlaAdapter.BlaViewHolder> {
             viewName = itemView.findViewById(R.id.name);
         }
 
-        public void setData(Bla bla) {
+        public void setData(BlaObject bla) {
             viewName.setText(bla.getName());
         }
     }

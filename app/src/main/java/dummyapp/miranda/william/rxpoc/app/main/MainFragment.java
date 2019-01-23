@@ -1,6 +1,5 @@
 package dummyapp.miranda.william.rxpoc.app.main;
 
-import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,14 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.List;
-
 import dummyapp.miranda.william.rxpoc.R;
-import dummyapp.miranda.william.rxpoc.framework.Bla;
+import dummyapp.miranda.william.rxpoc.app.AddReceiver;
 
 public class MainFragment extends Fragment {
 
     private MainViewModel viewModel;
+
     private RecyclerView recyclerView;
 
     @Nullable
@@ -39,12 +37,7 @@ public class MainFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         //Observe the Live Data provided by the ViewModel
-        viewModel.getAllBlaLiveData().observe(this, new Observer<List<Bla>>() {
-            @Override
-            public void onChanged(@Nullable List<Bla> newList) {
-                //When the Data changes, update the Adapter
-                ((BlaAdapter) recyclerView.getAdapter()).swap(newList);
-            }
-        });
+        viewModel.getResultListLiveData().observe(this, newList -> ((BlaAdapter) recyclerView.getAdapter()).swap(newList));
+
     }
 }
